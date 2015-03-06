@@ -37,27 +37,22 @@
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>sourceforge</id>
+			<name>SourceForge</name>
+			<url>scpexe://xl0e,tapestrysecurity@shell.sourceforge.net:/home/project-web/tapestrysecurity/htdocs/maven_repo</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<finalName>tapestry-common</finalName>
 		<plugins>
 			 <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-				<configuration></configuration>
 			</plugin>
-			<!--
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<optimize>true</optimize>
-				</configuration>
-			</plugin>
-			-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -83,6 +78,12 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+			</extension>
+	    </extensions>
 	</build>
 
 	<reporting />
@@ -93,6 +94,10 @@
 		<repository>
 			<id>apache-staging</id>
 			<url>https://repository.apache.org/content/groups/staging/</url>
+		</repository>
+		<repository>
+			<id>sf</id>
+			<url>http://tapestrysecurity.sourceforge.net/maven_repo/</url>
 		</repository>
 	</repositories>
 
